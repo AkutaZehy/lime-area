@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+		"vue.volar",
+		"dbaeumer.vscode-eslint",
+		"editorconfig.editorconfig",
+		"stylelint.vscode-stylelint",
+		"somewhatstationery.some-sass",
+		"mrmlnc.vscode-json5",
+		"gruntfuggly.todo-tree",
+		"usernamehw.errorlens",
+		"streetsidesoftware.code-spell-checker"
+	]
+}

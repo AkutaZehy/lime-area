@@ -1,0 +1,21 @@
+{
+	"Region Start": {
+		"prefix": "#region",
+		"body": [
+			"// #region $1",
+		],
+		"description": "Folding Region Start",
+	},
+	"Region End": {
+		"prefix": "#endregion",
+		"body": [
+			"// #endregion",
+		],
+		"description": "Folding Region End",
+	},
+	/* "Component Root": {
+		"prefix": ":comp",
+		"body": ":comp",
+		"description": "捕获组件的根节点。"
+	} */
+}
