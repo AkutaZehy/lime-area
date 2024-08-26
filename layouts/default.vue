@@ -40,7 +40,7 @@
 
 	@font-face {
 		font-family: 'Navigate';
-		src: url('@/assets/fonts/HigashiOme-Gothic-1.3i.ttf') format('truetype');
+		src: url('@/public/fonts/HigashiOme-Gothic-1.3i.ttf') format('truetype');
 	}
 
 	#app {
