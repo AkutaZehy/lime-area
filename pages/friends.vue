@@ -46,7 +46,7 @@ import FriendButton from '~/components/FriendButton.vue';
 			:friendName="'lachrymaL'"
 			:friendNameShort="'lach'"
 			:url="'https://lachrymal.net/'"
-			:comment="'Diet.'"
+			:comment="'Zero.'"
 		/>
 
 		<FriendButton

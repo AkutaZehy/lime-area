@@ -36,7 +36,9 @@
 			</template>
 		</a>
 		<div class="separator"></div>
-		<div class="name">{{ friendName }}</div>
+		<div class="name">
+			<abbr :title=friendName>{{ friendNameShort }}</abbr>
+		</div>
 		<div class="separator"></div>
 		<div class="comment">{{ comment }}</div>
 	</div>
@@ -80,7 +82,7 @@
 		min-width: none;
 		flex: 1;
 		font-weight: bold;
-		max-width: 200px;
+		max-width: 100px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -96,5 +98,8 @@
 	.comment {
 		flex: 1;
 		padding-left: 10px;
-	}
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		}
 </style>
