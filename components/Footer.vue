@@ -5,6 +5,7 @@
 
 <template>
 	<footer>
+		<hr />
 		<p color="grey">Still Under Development.</p>
 		<p>
 			©2018-{{ currentYear }}, Akuta Zehy，Some Rights Reserved <br />
