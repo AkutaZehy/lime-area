@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<Header :title="headerTitle" v-if="headerTitle" />
-		<div class="main-container">
+		<Header :title="headerTitle" v-if="headerTitle && !isMobile" />
+		<div class="main-container" v-if="!isMobile">
 			<div class="content">
 				<NuxtPage />
 			</div>
@@ -10,19 +10,25 @@
 				<Sidebar :isHome="!isHome" />
 			</div>
 		</div>
+		<div class="mobile-container" v-else>
+			<Sidebar :isHome="!isHome" />
+			<Header :title="headerTitle" v-if="headerTitle" />
+			<NuxtPage />
+		</div>
 		<Footer />
 	</div>
 </template>
 
 <script setup>
 	import { useRoute } from 'vue-router';
-	import { ref, watch } from 'vue';
+	import { ref, watch, onMounted, onUnmounted } from 'vue';
 	import Header from '~/components/Header.vue';
 	import Sidebar from '~/components/SideBar.vue';
 
 	const route = useRoute();
 	const headerTitle = ref('');
 	const isHome = ref(false);
+	const isMobile = ref(false);
 
 	// 监听路由变化，动态设置标题和 isHome 参数
 	watch(
@@ -33,6 +39,20 @@
 		},
 		{ immediate: true }
 	);
+
+	// 检查页面宽度
+	const checkMobile = () => {
+		isMobile.value = window.matchMedia('(max-width: 768px)').matches;
+	};
+
+	onMounted(() => {
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+	});
+
+	onUnmounted(() => {
+		window.removeEventListener('resize', checkMobile);
+	});
 </script>
 
 <style scoped>
@@ -70,5 +90,18 @@
 		text-align: center;
 		font-family: 'Navigate', sans-serif;
 		font-weight: bold;
+	}
+
+	/* 手机样式 */
+	.mobile-container {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+	}
+
+	@media (max-width: 768px) {
+		.main-container {
+			display: none;
+		}
 	}
 </style>
