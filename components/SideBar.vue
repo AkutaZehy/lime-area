@@ -1,14 +1,14 @@
 <template>
-	<div :class="['sidebar', { 'home-sidebar': isHome, 'mobile-sidebar': isMobile }]">
+	<div :class="['sidebar', { 'current-page-sidebar': isCurrentPage, 'mobile-sidebar': isMobile }]">
 		<nav>
 			<ul>
 				<li v-if="isHome">
 					<Home />
 				</li>
-				<li>
+				<li v-if="currentRoute.path != '/about'">
 					<NuxtLink to="/about">About Me</NuxtLink>
 				</li>
-				<li>
+				<li v-if="currentRoute.path != '/friends'">
 					<NuxtLink to="/friends">Friends</NuxtLink>
 				</li>
 			</ul>
@@ -17,24 +17,33 @@
 </template>
 
 <script setup>
+	import { computed, defineProps } from 'vue';
+	import { useRoute } from 'vue-router';
+
 	const props = defineProps({
 		isHome: {
 			type: Boolean,
 			default: false
 		},
+
 		isMobile: {
 			type: Boolean,
 			default: false
 		}
 	});
+
+	const currentRoute = useRoute();
+
+	const isCurrentPage = computed(() => currentRoute.path !== '');
+
+	console.log('currentRoute', currentRoute.path);
 </script>
 
 <style scoped>
-	.sidebar {
-	}
+	.sidebar {}
 
-	.home-sidebar {
-		/* 当 isHome 为 true 时的特殊样式 */
+	.current-page-sidebar {
+		/* 当 currentRoute.path 不为空时的特殊样式 */
 	}
 
 	nav ul {
@@ -54,6 +63,12 @@
 	}
 
 	nav ul li a:hover {
+		color: #007bff;
+	}
+
+	/* 激活状态的样式 */
+	nav ul li.active a {
+		font-weight: bold;
 		color: #007bff;
 	}
 

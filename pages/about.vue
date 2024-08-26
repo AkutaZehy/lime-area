@@ -12,13 +12,6 @@
 		An experimental space for me to test out Nuxt 3. <br />
 	</p>
 
-	<p>
-
-	</p>
-
-
-
-
 </template>
 
 <style scoped lang="scss">
