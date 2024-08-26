@@ -1,6 +1,6 @@
 body {
     margin: 40px auto;
-    max-width: 650px;
+    max-width: 800px;
     line-height: 1.6;
     font-family: "MS PGothic", MS PGothic, monospace;
     font-size: 18px;
@@ -72,7 +72,7 @@ nav {
 
 ul a {
   text-decoration: none;
-} 
+}
 
 ul{
   list-style-type: none;

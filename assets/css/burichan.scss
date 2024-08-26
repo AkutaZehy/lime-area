@@ -1,0 +1,96 @@
+// 定义变量
+$primary-color: #0082ff;
+$secondary-color: #7D3C98;
+$border-color: #420420;
+$background-color: #000000dd;
+$font-family: "MS PGothic", MS PGothic, monospace;
+$font-size: 18px;
+$line-height: 1.6;
+$max-width: 800px;
+$margin: 40px auto;
+$padding: 0 10px;
+
+// 混合宏
+@mixin fixed-position($position, $value, $align: left) {
+  position: fixed;
+  #{$position}: $value;
+  text-align: $align;
+}
+
+body {
+  margin: $margin;
+  max-width: $max-width;
+  line-height: $line-height;
+  font-family: $font-family;
+  font-size: $font-size;
+  color: #000000;
+  padding: $padding;
+}
+
+.bottomleft {
+  @include fixed-position(bottom, 0);
+}
+
+.bottomright {
+  @include fixed-position(bottom, 8px, right);
+  right: 16px;
+  font-size: $font-size;
+}
+
+.topright {
+  @include fixed-position(top, 0, right);
+  right: 16px;
+}
+
+.smtxt {
+  text-align: center;
+  font-size: 80%;
+}
+
+.ref {
+  font-size: larger;
+}
+
+a {
+  color: $primary-color;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+hr {
+  border: 1px solid $secondary-color;
+  background-color: $secondary-color;
+}
+
+header, nav, .entry {
+  border: 1px solid $border-color;
+  background: $background-color;
+  text-align: center;
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.entry {
+  padding: 20px;
+
+  h2 {
+    word-break: normal;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+}
